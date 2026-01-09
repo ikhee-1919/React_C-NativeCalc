@@ -1,33 +1,45 @@
-# Android Native Hooking with Frida
+# Android Native Calculator App
 
-Android 앱에서 **네이티브(.so) 라이브러리로 구현된 JNI 함수**를 대상으로  
-Frida를 사용해 **동적 후킹 및 반환값 변조**를 실습한 예제입니다.
+JNI 기반 네이티브(C++) 연산을 사용하는  
+간단한 Android 계산기 애플리케이션입니다.
 
-간단한 계산기 앱을 통해  
-Java/Kotlin → Native(C++) 호출 흐름과  
-ARM64 환경에서의 네이티브 후킹 방식을 확인할 수 있습니다.
-
----
-
-## What this project demonstrates
-
-- JNI 기반 네이티브 함수 호출 구조
-- `.so` 라이브러리 Export 심볼 후킹
-- Frida를 이용한 네이티브 함수 진입/종료 후킹
-- 반환값 강제 변조 (연산 결과 무시)
+덧셈, 뺄셈, 곱셈, 나눗셈 연산을 지원하며  
+실제 계산 로직은 Java/Kotlin이 아닌 **Native 라이브러리(.so)**에서 처리됩니다.
 
 ---
 
-## Environment
+## Features
 
-- Android (ARM64)
-- Native library: `libnativecalc.so`
-- Tool: Frida 17.x
-- Device: Android real device (rooted)
+- 기본 사칙연산 지원
+- Android UI + Native(C++) 연산 구조
+- JNI를 통한 Java ↔ Native 함수 호출
+- ARM64 환경에서 동작
 
 ---
 
-## How to run
+## Tech Stack
 
-```bash
-frida -U -f com.example.cotcalc -l script_native.js --no-pause
+- Android (Kotlin)
+- C++ (NDK)
+- JNI
+- Android Studio
+
+---
+
+## Native Structure
+
+- Java/Kotlin 코드에서 `native` 메서드 선언
+- 앱 실행 시 `System.loadLibrary()`로 네이티브 라이브러리 로드
+- 실제 연산은 `.so` 파일 내부에서 처리
+
+---
+
+## How to Run
+
+1. Android Studio에서 프로젝트 열기
+2. 실제 디바이스 또는 에뮬레이터 실행
+3. 앱 실행 후 계산기 버튼 입력
+
+---
+
+
