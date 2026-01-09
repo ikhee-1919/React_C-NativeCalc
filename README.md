@@ -42,4 +42,9 @@ JNI 기반 네이티브(C++) 연산을 사용하는
 
 ---
 
+## Native Frida  Study
+
+- 안드로이드 계산기 개발 과정
+- Native단 so파일을 IDA로 분석 후 Frida 코드 작성에 대한 내용
+- https://fuzzy-waitress-cad.notion.site/2e24a3b6966180e3a4a9f18de24d7610?pvs=74
 
